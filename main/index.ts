@@ -2,4 +2,7 @@
 const createHandler = require("azure-function-express").createHandler;
 import { createApp } from '../src/main'
 
-export default createHandler(createApp())
+export default async function() {
+    const app = await createApp()
+    return createHandler(app)
+}
